@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Myproject.MainPage"
+            BarTextColor="WhiteSmoke"
+            SelectedTabColor="violet"
+            UnselectedTabColor="LawnGreen">
+
+    <ContentPage Title="Home" IconImageSource="home.png" >
+        
+        <ContentPage.Content>
+          
+            <StackLayout>
+                
+               
+                <Label Text="Username" FontSize="20" TextColor="Black" Margin="10,150,0,0"></Label>
+                <Entry  x:Name="textUsername" Placeholder="Username" FontSize="15" Margin="10"></Entry>
+                <Label Text="Password" FontSize="20" TextColor="black" Margin="10"></Label>
+                <Entry  x:Name="textpassword" Placeholder="Password" FontSize="15" IsPassword="True" Margin="10"></Entry>
+                <Button
+                VerticalOptions="Center"
+                Text="Login"
+                BackgroundColor="blue" 
+                TextColor="white"
+                CornerRadius="20"
+                Margin="20"
+                Clicked="Button_Clicked"> 
+
+
+
+                </Button>
+
+                <Label VerticalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Don't have an account?" TextColor="Gray" FontSize="18"></Span>
+                            <Span Text="Register" TextColor="Gray" FontAttributes="Bold" TextDecorations="Underline" FontSize="18" ></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                  
+                   
+                </Label>
+
+
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    
+    
+    <ContentPage Title="collections" IconImageSource="shopping.png">
+        <ContentPage.Content>
+            <StackLayout>
+                
+                <SearchBar x:Name="Bar" Placeholder="search" PlaceholderColor="orange" CancelButtonColor="Yellow" HorizontalTextAlignment="Center" TextChanged="Search_TextChanged"></SearchBar>
+                <CollectionView x:Name="visa" ItemsSource="{Binding Ilist}" ItemsLayout="VerticalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" Margin="20">
+                                <Grid.RowDefinitions >
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="1.5*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height=".5*"></RowDefinition>
+
+
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageURL}" Grid.RowSpan="2" HeightRequest="150" WidthRequest="150"></Image>
+                                <Label Text="{Binding productName}" Grid.Row="0" Grid.Column="1" TextColor="black" FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="1" TextColor="blue"></Label>
+                                <Button Text=" Add to Cart" HorizontalOptions="Center" CornerRadius="30" Margin="10" TextColor="White"  BackgroundColor="Green" Grid.Row="2" Grid.Column="1" HeightRequest="5" WidthRequest="150" >
+                                    
+                                </Button>
+                                <BoxView Grid.Row="3" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray"></BoxView>
+                                <Image  Source="star5.jpg" WidthRequest="100" HeightRequest="100" HorizontalOptions="EndAndExpand" Grid.Column="2"></Image>
+                                
+                            </Grid>
+                            
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+               
+
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="cart" IconImageSource="cart.png">
+        <ContentPage.Content>
+            <StackLayout>
+
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+
+</TabbedPage>
